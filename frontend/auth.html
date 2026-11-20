@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RentEase — Log in</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="navbar" id="nav"></nav>
+
+  <div class="auth-wrap">
+    <div class="auth-card panel">
+      <h1>Welcome back</h1>
+      <p class="muted">Log in or create an account to book vehicles.</p>
+
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab active" type="button" data-tab="login" role="tab">Log in</button>
+        <button class="auth-tab" type="button" data-tab="register" role="tab">Sign up</button>
+      </div>
+
+      <div id="auth-alert"></div>
+
+      <div class="auth-panel active" id="panel-login">
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email</label>
+            <input class="form-control" type="email" id="login-email" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <input class="form-control" type="password" id="login-password" required minlength="6" autocomplete="current-password" />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit" id="login-btn">Log in</button>
+        </form>
+      </div>
+
+      <div class="auth-panel" id="panel-register">
+        <form id="register-form">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Name</label>
+            <input class="form-control" type="text" id="reg-name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email</label>
+            <input class="form-control" type="email" id="reg-email" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password</label>
+            <input class="form-control" type="password" id="reg-password" required minlength="6" autocomplete="new-password" />
+            <p class="form-hint">At least 6 characters.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-role">Role</label>
+            <select class="form-control" id="reg-role">
+              <option value="Customer">Customer</option>
+              <option value="Admin">Admin</option>
+            </select>
+            <p class="form-hint">Choose Admin only for testing vehicle management.</p>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit" id="register-btn">Create account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/auth-page.js"></script>
+</body>
+</html>

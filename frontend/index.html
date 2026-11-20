@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RentEase — Find a vehicle</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="navbar" id="nav"></nav>
+
+  <main class="page">
+    <div class="container">
+      <section class="hero">
+        <h1>Rent a vehicle, simply.</h1>
+        <p>Browse available cars, vans, and more. Filter by type or city, then book in a few clicks.</p>
+      </section>
+
+      <form class="filters panel" id="filter-form">
+        <div class="form-group">
+          <label class="form-label" for="vehicleName">Name</label>
+          <input class="form-control" id="vehicleName" name="vehicleName" placeholder="e.g. Innova" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="vehicleType">Type</label>
+          <select class="form-control" id="vehicleType" name="vehicleType">
+            <option value="">All types</option>
+            <option>SUV</option>
+            <option>Sedan</option>
+            <option>Hatchback</option>
+            <option>Truck</option>
+            <option>Van</option>
+            <option>Motorcycle</option>
+            <option>Bus</option>
+            <option>Coupe</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="location">Location</label>
+          <input class="form-control" id="location" name="location" placeholder="e.g. Mumbai" />
+        </div>
+        <div class="search-actions">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+      </form>
+
+      <div id="vehicles-grid" class="vehicles-grid" aria-live="polite"></div>
+      <div id="pagination" class="pagination"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="book-modal" role="dialog" aria-modal="true" aria-labelledby="book-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="book-title">Book vehicle</h2>
+        <button class="modal-close" type="button" data-close="book-modal" aria-label="Close">&times;</button>
+      </div>
+      <p class="muted" id="book-vehicle-name" style="margin-bottom:1rem"></p>
+      <form id="book-form">
+        <input type="hidden" id="book-vehicle-id" />
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pickupDate">Pickup date</label>
+            <input class="form-control" type="date" id="pickupDate" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="returnDate">Return date</label>
+            <input class="form-control" type="date" id="returnDate" required />
+          </div>
+        </div>
+        <p class="form-hint">Return date must be after pickup. Total is calculated automatically.</p>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-close="book-modal">Cancel</button>
+          <button class="btn btn-primary" type="submit" id="book-submit">Confirm booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">RentEase — vehicle rental & booking</footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

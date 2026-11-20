@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RentEase — Admin</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="navbar" id="nav"></nav>
+
+  <main class="page">
+    <div class="container">
+      <header class="page-header">
+        <div>
+          <h1 class="page-title">Vehicles</h1>
+          <p class="page-sub">Add, edit, or remove fleet vehicles.</p>
+        </div>
+        <button class="btn btn-primary" type="button" id="add-vehicle-btn">Add vehicle</button>
+      </header>
+
+      <div class="panel table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Reg. no.</th>
+              <th>Seats</th>
+              <th>Price/day</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="admin-table-body">
+            <tr><td colspan="8" class="muted">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="admin-pagination" class="pagination"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="vehicle-modal" role="dialog" aria-modal="true" aria-labelledby="vehicle-modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="vehicle-modal-title">Add vehicle</h2>
+        <button class="modal-close" type="button" data-close="vehicle-modal" aria-label="Close">&times;</button>
+      </div>
+      <form id="vehicle-form">
+        <input type="hidden" id="vehicle-id" />
+        <div class="form-group">
+          <label class="form-label" for="v-name">Vehicle name</label>
+          <input class="form-control" id="v-name" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="v-type">Type</label>
+            <select class="form-control" id="v-type" required>
+              <option>SUV</option>
+              <option>Sedan</option>
+              <option>Hatchback</option>
+              <option>Truck</option>
+              <option>Van</option>
+              <option>Motorcycle</option>
+              <option>Bus</option>
+              <option>Coupe</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="v-reg">Registration no.</label>
+            <input class="form-control" id="v-reg" required placeholder="MH12AB1234" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="v-seats">Seating capacity</label>
+            <input class="form-control" type="number" id="v-seats" min="1" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="v-price">Price per day (₹)</label>
+            <input class="form-control" type="number" id="v-price" min="1" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="v-location">Location</label>
+            <input class="form-control" id="v-location" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="v-status">Availability</label>
+            <select class="form-control" id="v-status">
+              <option value="true">Available</option>
+              <option value="false">Unavailable</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-close="vehicle-modal">Cancel</button>
+          <button class="btn btn-primary" type="submit" id="vehicle-submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">RentEase — vehicle rental & booking</footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

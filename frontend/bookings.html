@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RentEase — My bookings</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="navbar" id="nav"></nav>
+
+  <main class="page">
+    <div class="container">
+      <header class="page-header">
+        <div>
+          <h1 class="page-title">My bookings</h1>
+          <p class="page-sub">Confirmed and cancelled rentals for your account.</p>
+        </div>
+        <a class="btn btn-secondary" href="/">Browse vehicles</a>
+      </header>
+
+      <div id="bookings-list" class="booking-list" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">RentEase — vehicle rental & booking</footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/bookings.js"></script>
+</body>
+</html>
